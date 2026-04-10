@@ -16,6 +16,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -66,6 +67,20 @@
       font-size: 14px;
       cursor: pointer;
       display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .button:hover,
+    .quick-links a:hover,
+    .inline-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active-nav {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
     }
 
     .button.primary {
@@ -80,6 +95,13 @@
       grid-template-columns: 1.08fr 0.92fr;
       gap: 34px;
       align-items: start;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-height: 100%;
     }
 
     .eyebrow {
@@ -147,6 +169,7 @@
       padding: 14px;
       margin-bottom: 12px;
       background: white;
+      transition: all 0.2s ease;
     }
 
     .photo-card img {
@@ -188,6 +211,31 @@
       border-bottom: 1px solid #999;
     }
 
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .mini-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       margin-top: 30px;
@@ -199,7 +247,8 @@
     @media (max-width: 900px) {
       .hero,
       .grid-3,
-      .grid-2 {
+      .grid-2,
+      .mini-grid {
         grid-template-columns: 1fr;
       }
 
@@ -226,30 +275,46 @@
   <main class="container">
     <div id="home" class="tabs active">
       <section class="hero">
-        <div>
-          <div class="eyebrow">About</div>
-          <p class="muted">
-            I am Swastik Majumder from Kolkata, West Bengal, India. I am currently a graduate student at the Ohio State University, where I 
-            am pursuing a PhD in Physics. I am drawn to
-            problems where complex behavior emerges from interplay between interactions and thermal
-            effects. My past work has focused
-            on stochastic transport, interacting particle systems, and disordered
-            geometries. Currently, I am interested in understanding the behavior of hot and dense quark matter using perturbative quantum 
-            choromodynamics (QCD). 
-          </p>
-          <p class="muted">
-            Beyond physics, I am an avid reader of fiction, non-fiction, philosophy,
-            history, and especially the history of politics. I also write poetry,
-            blog about books I have been reading, enjoy teaching physics, and
-            closely follow cricket.
-          </p>
-          <p class="muted">
-            You can contact me at <strong>majumderswastik09@gmail.com</strong>.
-          </p>
-          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 20px;">
-            <a class="button primary" href="#papers">Research papers</a>
-            <a class="button" href="#teaching" onclick="showTab('teaching')">Teaching</a>
-            <a class="button" href="#qft" onclick="showTab('qft')">QFT page</a>
+        <div class="hero-left">
+          <div>
+            <div class="eyebrow">About</div>
+            <p class="muted">
+              I am Swastik Majumder from Kolkata, West Bengal, India. I am currently a graduate student at the Ohio State University, where I
+              am pursuing a PhD in Physics. I am drawn to
+              problems where complex behavior emerges from interplay between interactions and thermal
+              effects. My past work has focused
+              on stochastic transport, interacting particle systems, and disordered
+              geometries. Currently, I am interested in understanding the behavior of hot and dense quark matter using perturbative quantum
+              choromodynamics (QCD).
+            </p>
+            <p class="muted">
+              Beyond physics, I am an avid reader of fiction, non-fiction, philosophy,
+              history, and especially the history of politics. I also write poetry,
+              blog about books I have been reading, enjoy teaching physics, and
+              closely follow cricket.
+            </p>
+            <p class="muted">
+              You can contact me at <strong>majumderswastik09@gmail.com</strong>.
+            </p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 20px;">
+              <a class="button primary" href="#research" onclick="showTab('research')">Research papers</a>
+              <a class="button" href="#teaching" onclick="showTab('teaching')">Teaching</a>
+              <a class="button" href="#qft" onclick="showTab('qft')">QFT page</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="eyebrow">Current focus</div>
+            <div class="mini-grid">
+              <div class="mini-card">
+                <h4>Research interests</h4>
+                <p>Hot and dense quark matter, perturbative QCD, stochastic transport, interacting particle systems, and disordered geometries.</p>
+              </div>
+              <div class="mini-card">
+                <h4>Academic direction</h4>
+                <p>Understanding how interactions, geometry, and thermal effects combine to produce nontrivial collective behavior in many-body systems.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -257,11 +322,11 @@
           <img src="myself.jpeg" alt="Portrait outdoors in winter" />
           <h3 style="margin-bottom: 14px;">Quick links</h3>
           <div class="quick-links">
-            <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank">Google Scholar</a>
-            <a href="https://inspirehep.net/authors/2817640?ui-citation-summary=true" target="_blank">INSPIRE</a>
-            <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank">LinkedIn</a>
-            <a href="https://physics.osu.edu/people/majumder.31" target="_blank">OSU profile</a>
-            <a href="https://orcid.org/0009-0004-3006-2904" target="_blank">ORCID</a>
+            <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://inspirehep.net/authors/2817640?ui-citation-summary=true" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+            <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://physics.osu.edu/people/majumder.31" target="_blank" rel="noopener noreferrer">OSU profile</a>
+            <a href="https://orcid.org/0009-0004-3006-2904" target="_blank" rel="noopener noreferrer">ORCID</a>
           </div>
         </aside>
       </section>
@@ -291,14 +356,17 @@
       <section>
         <div class="section-box">
           <div class="eyebrow">More from me</div>
+          <p><a class="inline-link" href="#research" onclick="showTab('research')">Research papers</a></p>
           <p><a class="inline-link" href="#teaching" onclick="showTab('teaching')">Teaching</a></p>
           <p><a class="inline-link" href="#books" onclick="showTab('books')">Books & reading blog</a></p>
           <p><a class="inline-link" href="#poetry" onclick="showTab('poetry')">Poetry</a></p>
           <p><a class="inline-link" href="#qft" onclick="showTab('qft')">QFT solutions</a></p>
         </div>
       </section>
+    </div>
 
-      <section id="papers">
+    <div id="research" class="tabs">
+      <section>
         <div class="section-box">
           <div class="eyebrow">Research papers</div>
 
@@ -306,16 +374,16 @@
             <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a random comb</h3>
             <p class="muted">Swastik Majumder, Mustansir Barma</p>
             <p class="muted">Physical Review E, accepted article (2026)</p>
-            <p>We studied stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
-            <p><a class="inline-link" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View paper</a></p>
+            <p>Studies stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View paper</a></p>
           </article>
 
           <article class="paper">
             <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a one-dimensional lattice</h3>
             <p class="muted">Swastik Majumder, Mustansir Barma</p>
             <p class="muted">Physical Review E, accepted article (2026)</p>
-            <p>We explored the interplay between drive, interactions, and boundary conditions in stochastic lattice systems on a one-dimensional lattice.</p>
-            <p><a class="inline-link" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View paper</a></p>
+            <p>Explores the interplay between drive, interactions, and geometry in stochastic lattice systems on a one-dimensional lattice.</p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View paper</a></p>
           </article>
 
           <article class="paper">
@@ -324,7 +392,7 @@
             <p class="muted">Progress of Theoretical and Experimental Physics (2024)</p>
             <p>We computed complex eigenvalue and eigenvector distributions for symmetric order-three random tensors using zero-dimensional quantum field theory techniques.
             These distributions find application in quantum gravity, spin glass physics and quantum information theory.</p>
-            <p><a class="inline-link" target="_blank" href="https://doi.org/10.1093/ptep/ptae136">View paper</a></p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1093/ptep/ptae136">View paper</a></p>
           </article>
         </div>
       </section>
@@ -397,11 +465,32 @@
   </footer>
 
   <script>
+    function updateActiveNav(tabId) {
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active-nav');
+        const href = link.getAttribute('href');
+        if (href === '#' + tabId) {
+          link.classList.add('active-nav');
+        }
+      });
+    }
+
     function showTab(tabId) {
       document.querySelectorAll('.tabs').forEach(tab => tab.classList.remove('active'));
       const activeTab = document.getElementById(tabId);
-      if (activeTab) activeTab.classList.add('active');
+      if (activeTab) {
+        activeTab.classList.add('active');
+        updateActiveNav(tabId);
+        window.location.hash = tabId;
+      }
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['home', 'research', 'teaching', 'qft', 'books', 'poetry'];
+      const initialTab = validTabs.includes(hash) ? hash : 'home';
+      showTab(initialTab);
+    });
   </script>
 </body>
 </html>
