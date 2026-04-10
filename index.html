@@ -15,8 +15,13 @@
       --accent: #111;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -24,6 +29,10 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
     }
 
     .container {
@@ -34,7 +43,7 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(248, 250, 252, 0.9);
+      background: rgba(248, 250, 252, 0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       z-index: 20;
@@ -44,6 +53,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
       padding: 16px 0;
       flex-wrap: wrap;
     }
@@ -57,23 +67,51 @@
     .nav-links a {
       text-decoration: none;
       border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
       padding: 10px 14px;
       border-radius: 14px;
       font-size: 14px;
-      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .quick-links a:hover,
+    .inline-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active-nav {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .tabs {
+      display: none;
+    }
+
+    .tabs.active {
+      display: block;
     }
 
     .hero {
       padding: 56px 0 30px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 34px;
+      align-items: start;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
       gap: 22px;
+      min-width: 0;
+    }
+
+    .hero-right {
+      min-width: 0;
     }
 
     .eyebrow {
@@ -84,12 +122,26 @@
       margin-bottom: 10px;
     }
 
+    h1 {
+      font-size: 34px;
+      line-height: 1.18;
+      margin: 0 0 18px;
+      max-width: 780px;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
+
     h3 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       font-size: 22px;
     }
 
-    p { margin: 0 0 16px; }
+    p {
+      margin: 0 0 16px;
+    }
 
     .card {
       background: var(--card);
@@ -98,129 +150,321 @@
       padding: 24px;
     }
 
-    .plain-list {
-      margin: 10px 0 0;
-      padding-left: 20px;
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .plain-list li {
-      margin: 8px 0;
+    section {
+      padding: 24px 0;
+    }
+
+    .section-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+    }
+
+    .quick-links a {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: white;
+      transition: all 0.2s ease;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      object-fit: cover;
+    }
+
+    .paper {
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .paper:first-of-type {
+      border-top: none;
+      padding-top: 0;
     }
 
     .muted {
       color: var(--muted);
     }
 
-    .photo-card img {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 18px;
+    .plain-list {
+      margin: 12px 0 0;
+      padding-left: 22px;
     }
 
-    .quick-links a {
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px;
-      margin-bottom: 10px;
+    .plain-list li {
+      margin: 10px 0;
+    }
+
+    .inline-link {
       text-decoration: none;
+      border-bottom: 1px solid #999;
     }
 
     footer {
       border-top: 1px solid var(--border);
       margin-top: 30px;
-      padding: 24px 0;
+      padding: 24px 0 40px;
       color: var(--muted);
       font-size: 14px;
     }
 
     @media (max-width: 900px) {
-      .hero {
+      .hero,
+      .grid-3 {
         grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 26px;
       }
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="container nav">
+      <div><strong>Swastik Majumder</strong></div>
+      <nav class="nav-links">
+        <a href="#home" onclick="showTab('home')">Home</a>
+        <a href="#research" onclick="showTab('research')">Research papers</a>
+        <a href="#teaching" onclick="showTab('teaching')">Teaching</a>
+        <a href="#qft" onclick="showTab('qft')">QFT</a>
+        <a href="#books" onclick="showTab('books')">Books</a>
+        <a href="#poetry" onclick="showTab('poetry')">Poetry</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="container nav">
-    <div><strong>Swastik Majumder</strong></div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#research">Research papers</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#qft">QFT</a>
-      <a href="#books">Books</a>
-      <a href="#poetry">Poetry</a>
-    </nav>
-  </div>
-</header>
+  <main class="container">
+    <div id="home" class="tabs active">
+      <section class="hero">
+        <div class="hero-left">
+          <div>
+            <div class="eyebrow">About</div>
+            <p class="muted">
+              I am Swastik Majumder, originally from Kolkata, West Bengal, India, and currently a graduate student in the Department of Physics at
+              The Ohio State University, where I am pursuing a PhD in Physics. My research interests lie in problems where complex collective
+              behavior emerges from the interplay of interactions, geometry, and thermal effects. My previous work has focused on stochastic
+              transport, interacting particle systems, and disordered geometries. At present, I am interested in the properties of hot and dense
+              quark matter, with particular emphasis on perturbative quantum chromodynamics (QCD).
+            </p>
 
-<main class="container">
+            <p class="muted">
+              Beyond my research, I maintain a broad intellectual interest in fiction, non-fiction, philosophy, history, and political history.
+              I also write poetry, keep notes on books I read, enjoy teaching physics, and follow cricket closely.
+            </p>
 
-<section class="hero">
+            <p class="muted">
+              You may contact me at <strong>majumderswastik09@gmail.com</strong>.
+            </p>
+          </div>
 
-  <div class="hero-left">
-    <div>
-      <div class="eyebrow">About</div>
+          <div class="card">
+            <h3>Research interests</h3>
+            <ul class="plain-list">
+              <li>Hot and dense quark matter</li>
+              <li>Perturbative QCD</li>
+              <li>Stochastic transport</li>
+              <li>Interacting particle systems</li>
+              <li>Disordered geometries</li>
+            </ul>
+          </div>
+        </div>
 
-      <p class="muted">
-        I am Swastik Majumder, originally from Kolkata, West Bengal, India, and currently a graduate student in the Department of Physics at
-        The Ohio State University, where I am pursuing a PhD in Physics. My research interests lie in problems where complex collective
-        behavior emerges from the interplay of interactions, geometry, and thermal effects. My previous work has focused on stochastic
-        transport, interacting particle systems, and disordered geometries. At present, I am interested in the properties of hot and dense
-        quark matter, with particular emphasis on perturbative quantum chromodynamics (QCD).
-      </p>
+        <aside class="hero-right">
+          <div class="card photo-card">
+            <img src="myself.jpeg" alt="Portrait outdoors in winter" />
+            <h3 style="margin-bottom: 14px;">Quick links</h3>
+            <div class="quick-links">
+              <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a href="https://inspirehep.net/authors/2817640?ui-citation-summary=true" target="_blank" rel="noopener noreferrer">INSPIRE</a>
+              <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://physics.osu.edu/people/majumder.31" target="_blank" rel="noopener noreferrer">OSU profile</a>
+              <a href="https://orcid.org/0009-0004-3006-2904" target="_blank" rel="noopener noreferrer">ORCID</a>
+            </div>
+          </div>
+        </aside>
+      </section>
 
-      <p class="muted">
-        Beyond my research, I maintain a broad intellectual interest in fiction, non-fiction, philosophy, history, and political history.
-        I also write poetry, keep notes on books I read, enjoy teaching physics, and follow cricket closely.
-      </p>
+      <section>
+        <div class="grid-3">
+          <div class="card">
+            <div class="eyebrow">Present affiliation</div>
+            <h3>The Ohio State University</h3>
+            <p class="muted">Department of Physics, Columbus, Ohio.</p>
+            <p><strong>Position:</strong> Graduate Research Associate</p>
+          </div>
 
-      <p class="muted">
-        You may contact me at <strong>majumderswastik09@gmail.com</strong>.
-      </p>
+          <div class="card">
+            <div class="eyebrow">Past affiliations</div>
+            <p><strong>Visiting Student</strong></p>
+            <p>Tata Institute of Fundamental Research (TIFR) Hyderabad</p>
+            <p class="muted">May 2024 - Jun 2025</p>
+          </div>
+
+          <div class="card">
+            <div class="eyebrow">Education</div>
+            <p><strong>M.S. Physics</strong> — Indian Institute of Science Education and Research Kolkata, India — 2025</p>
+            <p><strong>B.S. Physics</strong> — Indian Institute of Science Education and Research Kolkata, India — 2025</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">More from me</div>
+          <p><a class="inline-link" href="#research" onclick="showTab('research')">Research papers</a></p>
+          <p><a class="inline-link" href="#teaching" onclick="showTab('teaching')">Teaching</a></p>
+          <p><a class="inline-link" href="#books" onclick="showTab('books')">Books & reading blog</a></p>
+          <p><a class="inline-link" href="#poetry" onclick="showTab('poetry')">Poetry</a></p>
+          <p><a class="inline-link" href="#qft" onclick="showTab('qft')">QFT solutions</a></p>
+        </div>
+      </section>
     </div>
 
-    <!-- CLEAN RESEARCH INTERESTS -->
-    <div class="card">
-      <h3>Research interests</h3>
-      <ul class="plain-list">
-        <li>Hot and dense quark matter</li>
-        <li>Perturbative QCD</li>
-        <li>Stochastic transport</li>
-        <li>Interacting particle systems</li>
-        <li>Disordered geometries</li>
-      </ul>
+    <div id="research" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Research papers</div>
+
+          <article class="paper">
+            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a random comb</h3>
+            <p class="muted">Swastik Majumder, Mustansir Barma</p>
+            <p class="muted">Physical Review E, accepted article (2026)</p>
+            <p>Studies stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View paper</a></p>
+          </article>
+
+          <article class="paper">
+            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a one-dimensional lattice</h3>
+            <p class="muted">Swastik Majumder, Mustansir Barma</p>
+            <p class="muted">Physical Review E, accepted article (2026)</p>
+            <p>Explores the interplay between drive, interactions, and geometry in stochastic lattice systems on a one-dimensional lattice.</p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View paper</a></p>
+          </article>
+
+          <article class="paper">
+            <h3>Three cases of complex eigenvalue/vector distributions of symmetric order-three random tensors</h3>
+            <p class="muted">Swastik Majumder, Naoki Sasakura</p>
+            <p class="muted">Progress of Theoretical and Experimental Physics (2024)</p>
+            <p>We computed complex eigenvalue and eigenvector distributions for symmetric order-three random tensors using zero-dimensional quantum field theory techniques. These distributions find application in quantum gravity, spin glass physics, and quantum information theory.</p>
+            <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1093/ptep/ptae136">View paper</a></p>
+          </article>
+        </div>
+      </section>
     </div>
 
-  </div>
-
-  <aside class="card photo-card">
-    <img src="myself.jpeg" alt="portrait" />
-
-    <h3>Quick links</h3>
-
-    <div class="quick-links">
-      <a href="#">Google Scholar</a>
-      <a href="#">INSPIRE</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">OSU profile</a>
-      <a href="#">ORCID</a>
+    <div id="teaching" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Teaching</div>
+          <h2>Teaching experience</h2>
+          <ul class="plain-list">
+            <li><strong>Spring 2026:</strong> Graduate Teaching Associate, Physics 1251: E&amp;M, Waves, Optics, Modern Physics — The Ohio State University</li>
+            <li><strong>Fall 2025:</strong> Graduate Teaching Associate, Physics 1251: E&amp;M, Waves, Optics, Modern Physics — The Ohio State University</li>
+            <li><strong>Spring 2025:</strong> Teaching Assistant, Statistical Mechanics, Probability and Statistics II — Indian Institute of Science Education and Research Kolkata</li>
+            <li><strong>Autumn 2024:</strong> Teaching Assistant, Condensed Matter Physics — Indian Institute of Science Education and Research Kolkata</li>
+            <li><strong>Spring 2024:</strong> Teaching Assistant, Statistical Mechanics — Indian Institute of Science Education and Research Kolkata</li>
+          </ul>
+        </div>
+      </section>
     </div>
-  </aside>
 
-</section>
+    <div id="qft" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">QFT page</div>
+          <h2>Schwartz QFT solutions</h2>
+          <p class="muted">This page is reserved for worked solutions and notes based on Schwartz's Quantum Field Theory.</p>
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
+            <div class="eyebrow">Coming soon</div>
+            <p class="muted">I will gradually upload problem solutions, derivations, and short conceptual notes here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
-</main>
+    <div id="books" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Books & reading blog</div>
+          <h2>Notes on books, ideas, and history</h2>
+          <p class="muted">This section will host blog-style reflections on books I have been reading, especially in non-fiction, philosophy, history, and the history of politics.</p>
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
+            <div class="eyebrow">Coming soon</div>
+            <p class="muted">Essays, reading notes, and book reflections will appear here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
-<footer>
-  <div class="container">
-    <p>© 2026 Swastik Majumder</p>
-  </div>
-</footer>
+    <div id="poetry" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Poetry</div>
+          <h2>Poems and fragments</h2>
+          <p class="muted">A space for poems, short reflections, and literary experiments.</p>
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
+            <div class="eyebrow">Coming soon</div>
+            <p class="muted">Original writing and poetry will be posted here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
+  <footer>
+    <div class="container">
+      <p>© 2026 Swastik Majumder</p>
+      <p>Personal academic website.</p>
+    </div>
+  </footer>
+
+  <script>
+    function updateActiveNav(tabId) {
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active-nav');
+        const href = link.getAttribute('href');
+        if (href === '#' + tabId) {
+          link.classList.add('active-nav');
+        }
+      });
+    }
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tabs').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.add('active');
+        updateActiveNav(tabId);
+        window.location.hash = tabId;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['home', 'research', 'teaching', 'qft', 'books', 'poetry'];
+      const initialTab = validTabs.includes(hash) ? hash : 'home';
+      showTab(initialTab);
+    });
+  </script>
 </body>
 </html>
