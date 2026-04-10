@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swastik Majumder</title>
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1f1f1f;
+      --muted: #666;
+      --border: #ddd;
+      --accent: #111;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 247, 245, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .button,
+    .tab-button {
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 32px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 12px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    p { margin: 0 0 16px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .quick-links a {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: white;
+    }
+
+    .paper {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 16px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tabs {
+      display: none;
+    }
+
+    .tabs.active {
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 30px;
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 38px; }
+      h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div><strong>Swastik Majumder</strong></div>
+      <nav class="nav-links">
+        <a href="#home" onclick="showTab('home')">Home</a>
+        <a href="#teaching" onclick="showTab('teaching')">Teaching</a>
+        <a href="#qft" onclick="showTab('qft')">QFT</a>
+        <a href="#books" onclick="showTab('books')">Books</a>
+        <a href="#poetry" onclick="showTab('poetry')">Poetry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="home" class="tabs active">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Swastik Majumder</div>
+          <h1>Physics PhD student working in statistical physics and field theory.</h1>
+          <p style="margin-top:24px; max-width: 760px;" class="muted">
+            I am Swastik Majumder from Kolkata, West Bengal, India. My research interests lie in theoretical physics, especially statistical physics and field theory. I am interested in how complex and emergent behavior arises in interacting many-body systems, disordered geometries, and stochastic models.
+          </p>
+          <p style="max-width: 760px;" class="muted">
+            Beyond physics, I am an avid reader of non-fiction, philosophy, history, and especially the history of politics. I also write poetry, blog about books I have been reading, enjoy teaching physics, and closely follow cricket.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 24px;">
+            <a class="button primary" href="#papers">View research papers</a>
+            <a class="button" href="#teaching" onclick="showTab('teaching')">Teaching</a>
+            <a class="button" href="#qft" onclick="showTab('qft')">QFT page</a>
+          </div>
+        </div>
+
+        <aside class="card quick-links">
+          <h3>Quick links</h3>
+          <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank">Google Scholar</a>
+          <a href="https://physics.osu.edu/people/majumder.31" target="_blank">Ohio State profile</a>
+          <a href="https://orcid.org/0009-0004-3006-2904" target="_blank">ORCID</a>
+          <a href="mailto:majumder.31@osu.edu">Email</a>
+        </aside>
+      </section>
+
+      <section>
+        <div class="grid-3">
+          <div class="card">
+            <div class="eyebrow">Name</div>
+            <h3>Swastik Majumder</h3>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Affiliation</div>
+            <h3>The Ohio State University</h3>
+            <p class="muted">Department of Physics, Columbus, Ohio.</p>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Position</div>
+            <h3>Physics PhD student</h3>
+            <p class="muted">Graduate Research Associate.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid-2">
+          <div class="section-box">
+            <div class="eyebrow">Research summary</div>
+            <h2>What I work on</h2>
+            <p class="muted">
+              My research lies in theoretical physics, especially statistical physics and field theory. I am interested in how complex and emergent behavior arises in interacting many-body systems, disordered geometries, stochastic transport models, and related mathematical structures. I enjoy problems where analytic methods, physical intuition, and conceptual clarity all meet.
+            </p>
+          </div>
+          <div class="section-box">
+            <div class="eyebrow">More from me</div>
+            <p><a href="#teaching" onclick="showTab('teaching')">Teaching</a></p>
+            <p><a href="#books" onclick="showTab('books')">Books & reading blog</a></p>
+            <p><a href="#poetry" onclick="showTab('poetry')">Poetry</a></p>
+            <p><a href="#qft" onclick="showTab('qft')">QFT solutions</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="papers">
+        <div class="section-box">
+          <div class="eyebrow">Research papers</div>
+
+          <article class="paper">
+            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a random comb</h3>
+            <p class="muted">Physical Review E, accepted article</p>
+            <p>Studies stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
+            <a class="button" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View</a>
+          </article>
+
+          <article class="paper">
+            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a 1D lattice and random comb</h3>
+            <p class="muted">Physical Review E, accepted article</p>
+            <p>Explores the interplay between drive, interactions, and geometry in stochastic lattice systems, including one-dimensional lattices and random comb structures.</p>
+            <a class="button" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View</a>
+          </article>
+
+          <article class="paper">
+            <h3>Three cases of complex eigenvalue/vector distributions of symmetric order-three random tensors</h3>
+            <p class="muted">Progress of Theoretical and Experimental Physics, 2024</p>
+            <p>Computes complex eigenvalue and eigenvector distributions for symmetric order-three random tensors using zero-dimensional quantum field theory techniques.</p>
+            <a class="button" target="_blank" href="https://arxiv.org/abs/2408.01030">View</a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div id="teaching" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Teaching</div>
+          <h2>Teaching experience</h2>
+          <div class="paper">
+            <p class="eyebrow">Spring 2026</p>
+            <h3>Physics 1251: E&amp;M, Waves, Optics, Modern Physics</h3>
+          </div>
+          <div class="paper">
+            <p class="eyebrow">Fall 2025</p>
+            <h3>Physics 1251: E&amp;M, Waves, Optics, Modern Physics</h3>
+          </div>
+          <div class="paper">
+            <p class="eyebrow">Spring 2025</p>
+            <h3>Statistical Mechanics, Probability and Statistics II</h3>
+          </div>
+          <div class="paper">
+            <p class="eyebrow">Autumn 2024</p>
+            <h3>Condensed Matter Physics</h3>
+          </div>
+          <div class="paper">
+            <p class="eyebrow">Spring 2024</p>
+            <h3>Statistical Mechanics</h3>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="qft" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">QFT page</div>
+          <h2>Schwartz QFT solutions</h2>
+          <p class="muted">This page is reserved for worked solutions and notes based on Schwartz's Quantum Field Theory.</p>
+          <div class="paper" style="text-align:center; border-style:dashed;">
+            <div class="eyebrow">Coming soon</div>
+            <h3>Notes and solutions are on the way</h3>
+            <p class="muted">I will gradually upload problem solutions, derivations, and short conceptual notes here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="books" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Books & reading blog</div>
+          <h2>Notes on books, ideas, and history</h2>
+          <p class="muted">This section will host blog-style reflections on books I have been reading, especially in non-fiction, philosophy, history, and the history of politics.</p>
+          <div class="paper" style="text-align:center; border-style:dashed;">
+            <div class="eyebrow">Coming soon</div>
+            <p class="muted">Essays, reading notes, and book reflections will appear here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="poetry" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Poetry</div>
+          <h2>Poems and fragments</h2>
+          <p class="muted">A space for poems, short reflections, and literary experiments.</p>
+          <div class="paper" style="text-align:center; border-style:dashed;">
+            <div class="eyebrow">Coming soon</div>
+            <p class="muted">Original writing and poetry will be posted here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Swastik Majumder</p>
+      <p>Personal academic website.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tabs').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) activeTab.classList.add('active');
+    }
+  </script>
+</body>
+</html>
 
