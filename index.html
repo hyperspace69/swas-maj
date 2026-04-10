@@ -6,11 +6,11 @@
   <title>Swastik Majumder</title>
   <style>
     :root {
-      --bg: #f7f7f5;
+      --bg: #f6f5f2;
       --card: #ffffff;
       --text: #1f1f1f;
       --muted: #666;
-      --border: #ddd;
+      --border: #d9d9d9;
       --accent: #111;
     }
 
@@ -21,20 +21,20 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     a { color: inherit; }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
     }
 
     header {
       position: sticky;
       top: 0;
-      background: rgba(247, 247, 245, 0.95);
+      background: rgba(246, 245, 242, 0.94);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       z-index: 20;
@@ -56,8 +56,7 @@
     }
 
     .nav-links a,
-    .button,
-    .tab-button {
+    .button {
       text-decoration: none;
       border: 1px solid var(--border);
       background: white;
@@ -76,10 +75,11 @@
     }
 
     .hero {
-      padding: 72px 0 44px;
+      padding: 56px 0 30px;
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 32px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: start;
     }
 
     .eyebrow {
@@ -91,13 +91,14 @@
     }
 
     h1 {
-      font-size: 52px;
-      line-height: 1.08;
-      margin: 0;
+      font-size: 34px;
+      line-height: 1.18;
+      margin: 0 0 18px;
+      max-width: 780px;
     }
 
     h2 {
-      font-size: 32px;
+      font-size: 30px;
       margin: 0 0 12px;
     }
 
@@ -128,14 +129,14 @@
     }
 
     section {
-      padding: 28px 0;
+      padding: 24px 0;
     }
 
     .section-box {
       background: white;
       border: 1px solid var(--border);
       border-radius: 28px;
-      padding: 32px;
+      padding: 30px;
     }
 
     .quick-links a {
@@ -148,23 +149,43 @@
       background: white;
     }
 
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      object-fit: cover;
+    }
+
     .paper {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .paper:first-of-type {
+      border-top: none;
+      padding-top: 0;
     }
 
     .muted {
       color: var(--muted);
     }
 
-    .tabs {
-      display: none;
+    .tabs { display: none; }
+    .tabs.active { display: block; }
+
+    .plain-list {
+      margin: 18px 0 0;
+      padding-left: 22px;
     }
 
-    .tabs.active {
-      display: block;
+    .plain-list li {
+      margin: 10px 0;
+    }
+
+    .inline-link {
+      text-decoration: none;
+      border-bottom: 1px solid #999;
     }
 
     footer {
@@ -182,8 +203,8 @@
         grid-template-columns: 1fr;
       }
 
-      h1 { font-size: 38px; }
-      h2 { font-size: 28px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 26px; }
     }
   </style>
 </head>
@@ -205,46 +226,66 @@
     <div id="home" class="tabs active">
       <section class="hero">
         <div>
-          <div class="eyebrow">Swastik Majumder</div>
-          <h1>Physics PhD student working in statistical physics and field theory.</h1>
-          <p style="margin-top:24px; max-width: 760px;" class="muted">
-            I am Swastik Majumder from Kolkata, West Bengal, India. My research interests lie in theoretical physics, especially statistical physics and field theory. I am interested in how complex and emergent behavior arises in interacting many-body systems, disordered geometries, and stochastic models.
+          <div class="eyebrow">About</div>
+          <h1>
+            I am a physics PhD student at The Ohio State University working on
+            statistical physics, field theory, and related many-body problems.
+          </h1>
+          <p class="muted">
+            I am Swastik Majumder from Kolkata, West Bengal, India. I am drawn to
+            problems where complex behavior emerges from interactions, thermal
+            effects, bias, disorder, and collective dynamics. My work has focused
+            on stochastic transport, interacting particle systems, and disordered
+            geometries, and I am currently also interested in quark matter at high
+            temperature and density, especially in relation to the equation of
+            state of neutron stars.
           </p>
-          <p style="max-width: 760px;" class="muted">
-            Beyond physics, I am an avid reader of non-fiction, philosophy, history, and especially the history of politics. I also write poetry, blog about books I have been reading, enjoy teaching physics, and closely follow cricket.
+          <p class="muted">
+            Beyond physics, I am an avid reader of non-fiction, philosophy,
+            history, and especially the history of politics. I also write poetry,
+            blog about books I have been reading, enjoy teaching physics, and
+            closely follow cricket.
           </p>
-          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 24px;">
-            <a class="button primary" href="#papers">View research papers</a>
+          <p class="muted">
+            You can contact me at <strong>majumder.31@osu.edu</strong>.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 20px;">
+            <a class="button primary" href="#papers">Research papers</a>
             <a class="button" href="#teaching" onclick="showTab('teaching')">Teaching</a>
             <a class="button" href="#qft" onclick="showTab('qft')">QFT page</a>
           </div>
         </div>
 
-        <aside class="card quick-links">
-          <h3>Quick links</h3>
-          <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank">LinkedIn</a>
-          <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank">Google Scholar</a>
-          <a href="https://physics.osu.edu/people/majumder.31" target="_blank">Ohio State profile</a>
-          <a href="https://orcid.org/0009-0004-3006-2904" target="_blank">ORCID</a>
-          <a href="mailto:majumder.31@osu.edu">Email</a>
+        <aside class="card photo-card">
+          <img src="myself.jpeg" alt="Portrait outdoors in winter" />
+          <h3 style="margin-bottom: 14px;">Quick links</h3>
+          <div class="quick-links">
+            <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank">Google Scholar</a>
+            <a href="https://physics.osu.edu/people/majumder.31" target="_blank">Ohio State profile</a>
+            <a href="https://orcid.org/0009-0004-3006-2904" target="_blank">ORCID</a>
+          </div>
         </aside>
       </section>
 
       <section>
         <div class="grid-3">
           <div class="card">
-            <div class="eyebrow">Name</div>
-            <h3>Swastik Majumder</h3>
-          </div>
-          <div class="card">
-            <div class="eyebrow">Affiliation</div>
+            <div class="eyebrow">Present affiliation</div>
             <h3>The Ohio State University</h3>
             <p class="muted">Department of Physics, Columbus, Ohio.</p>
+            <p><strong>Position:</strong> Physics PhD student / Graduate Research Associate</p>
           </div>
           <div class="card">
-            <div class="eyebrow">Position</div>
-            <h3>Physics PhD student</h3>
-            <p class="muted">Graduate Research Associate.</p>
+            <div class="eyebrow">Past affiliations</div>
+            <p><strong>Visiting Student</strong></p>
+            <p>Tata Institute of Fundamental Research (TIFR) Hyderabad</p>
+            <p class="muted">May 2024 - Jun 2025</p>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Education</div>
+            <p><strong>M.S. Physics</strong> — Indian Institute of Science Education and Research Kolkata, India — 2025</p>
+            <p><strong>B.S. Physics</strong> — Indian Institute of Science Education and Research Kolkata, India — 2025</p>
           </div>
         </div>
       </section>
@@ -255,15 +296,21 @@
             <div class="eyebrow">Research summary</div>
             <h2>What I work on</h2>
             <p class="muted">
-              My research lies in theoretical physics, especially statistical physics and field theory. I am interested in how complex and emergent behavior arises in interacting many-body systems, disordered geometries, stochastic transport models, and related mathematical structures. I enjoy problems where analytic methods, physical intuition, and conceptual clarity all meet.
+              My research lies broadly in theoretical physics. I like problems in
+              which rich collective behavior appears because of interactions,
+              fluctuations, thermal effects, constraints, and geometry. These
+              themes show up across my work in statistical physics, field theory,
+              stochastic dynamics, and many-body systems, and they also motivate
+              my current interest in quark matter at high temperature and density
+              and in the equation of state relevant for neutron stars.
             </p>
           </div>
           <div class="section-box">
             <div class="eyebrow">More from me</div>
-            <p><a href="#teaching" onclick="showTab('teaching')">Teaching</a></p>
-            <p><a href="#books" onclick="showTab('books')">Books & reading blog</a></p>
-            <p><a href="#poetry" onclick="showTab('poetry')">Poetry</a></p>
-            <p><a href="#qft" onclick="showTab('qft')">QFT solutions</a></p>
+            <p><a class="inline-link" href="#teaching" onclick="showTab('teaching')">Teaching</a></p>
+            <p><a class="inline-link" href="#books" onclick="showTab('books')">Books & reading blog</a></p>
+            <p><a class="inline-link" href="#poetry" onclick="showTab('poetry')">Poetry</a></p>
+            <p><a class="inline-link" href="#qft" onclick="showTab('qft')">QFT solutions</a></p>
           </div>
         </div>
       </section>
@@ -276,21 +323,21 @@
             <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a random comb</h3>
             <p class="muted">Physical Review E, accepted article</p>
             <p>Studies stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
-            <a class="button" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View</a>
+            <p><a class="inline-link" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View paper</a></p>
           </article>
 
           <article class="paper">
-            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a 1D lattice and random comb</h3>
+            <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a 1D lattice</h3>
             <p class="muted">Physical Review E, accepted article</p>
-            <p>Explores the interplay between drive, interactions, and geometry in stochastic lattice systems, including one-dimensional lattices and random comb structures.</p>
-            <a class="button" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View</a>
+            <p>Explores the interplay between drive, interactions, and geometry in stochastic lattice systems on a one-dimensional lattice.</p>
+            <p><a class="inline-link" target="_blank" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View paper</a></p>
           </article>
 
           <article class="paper">
             <h3>Three cases of complex eigenvalue/vector distributions of symmetric order-three random tensors</h3>
             <p class="muted">Progress of Theoretical and Experimental Physics, 2024</p>
             <p>Computes complex eigenvalue and eigenvector distributions for symmetric order-three random tensors using zero-dimensional quantum field theory techniques.</p>
-            <a class="button" target="_blank" href="https://arxiv.org/abs/2408.01030">View</a>
+            <p><a class="inline-link" target="_blank" href="https://arxiv.org/abs/2408.01030">View paper</a></p>
           </article>
         </div>
       </section>
@@ -301,26 +348,13 @@
         <div class="section-box">
           <div class="eyebrow">Teaching</div>
           <h2>Teaching experience</h2>
-          <div class="paper">
-            <p class="eyebrow">Spring 2026</p>
-            <h3>Physics 1251: E&amp;M, Waves, Optics, Modern Physics</h3>
-          </div>
-          <div class="paper">
-            <p class="eyebrow">Fall 2025</p>
-            <h3>Physics 1251: E&amp;M, Waves, Optics, Modern Physics</h3>
-          </div>
-          <div class="paper">
-            <p class="eyebrow">Spring 2025</p>
-            <h3>Statistical Mechanics, Probability and Statistics II</h3>
-          </div>
-          <div class="paper">
-            <p class="eyebrow">Autumn 2024</p>
-            <h3>Condensed Matter Physics</h3>
-          </div>
-          <div class="paper">
-            <p class="eyebrow">Spring 2024</p>
-            <h3>Statistical Mechanics</h3>
-          </div>
+          <ul class="plain-list">
+            <li><strong>Spring 2026:</strong> Physics 1251: E&amp;M, Waves, Optics, Modern Physics</li>
+            <li><strong>Fall 2025:</strong> Physics 1251: E&amp;M, Waves, Optics, Modern Physics</li>
+            <li><strong>Spring 2025:</strong> Statistical Mechanics, Probability and Statistics II</li>
+            <li><strong>Autumn 2024:</strong> Condensed Matter Physics</li>
+            <li><strong>Spring 2024:</strong> Statistical Mechanics</li>
+          </ul>
         </div>
       </section>
     </div>
@@ -331,9 +365,8 @@
           <div class="eyebrow">QFT page</div>
           <h2>Schwartz QFT solutions</h2>
           <p class="muted">This page is reserved for worked solutions and notes based on Schwartz's Quantum Field Theory.</p>
-          <div class="paper" style="text-align:center; border-style:dashed;">
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
             <div class="eyebrow">Coming soon</div>
-            <h3>Notes and solutions are on the way</h3>
             <p class="muted">I will gradually upload problem solutions, derivations, and short conceptual notes here.</p>
           </div>
         </div>
@@ -346,7 +379,7 @@
           <div class="eyebrow">Books & reading blog</div>
           <h2>Notes on books, ideas, and history</h2>
           <p class="muted">This section will host blog-style reflections on books I have been reading, especially in non-fiction, philosophy, history, and the history of politics.</p>
-          <div class="paper" style="text-align:center; border-style:dashed;">
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
             <div class="eyebrow">Coming soon</div>
             <p class="muted">Essays, reading notes, and book reflections will appear here.</p>
           </div>
@@ -360,7 +393,7 @@
           <div class="eyebrow">Poetry</div>
           <h2>Poems and fragments</h2>
           <p class="muted">A space for poems, short reflections, and literary experiments.</p>
-          <div class="paper" style="text-align:center; border-style:dashed;">
+          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
             <div class="eyebrow">Coming soon</div>
             <p class="muted">Original writing and poetry will be posted here.</p>
           </div>
@@ -385,4 +418,3 @@
   </script>
 </body>
 </html>
-
