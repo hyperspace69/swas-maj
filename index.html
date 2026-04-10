@@ -211,31 +211,6 @@
       border-bottom: 1px solid #999;
     }
 
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .mini-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .mini-card h4 {
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-
-    .mini-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
     footer {
       border-top: 1px solid var(--border);
       margin-top: 30px;
@@ -247,8 +222,7 @@
     @media (max-width: 900px) {
       .hero,
       .grid-3,
-      .grid-2,
-      .mini-grid {
+      .grid-2 {
         grid-template-columns: 1fr;
       }
 
@@ -263,7 +237,7 @@
       <div><strong>Swastik Majumder</strong></div>
       <nav class="nav-links">
         <a href="#home" onclick="showTab('home')">Home</a>
-        <a href="#research" onclick="showTab('research')">Research</a>
+        <a href="#research" onclick="showTab('research')">Research papers</a>
         <a href="#teaching" onclick="showTab('teaching')">Teaching</a>
         <a href="#qft" onclick="showTab('qft')">QFT</a>
         <a href="#books" onclick="showTab('books')">Books</a>
@@ -279,42 +253,28 @@
           <div>
             <div class="eyebrow">About</div>
             <p class="muted">
-              I am Swastik Majumder from Kolkata, West Bengal, India. I am currently a graduate student at the Ohio State University, where I
-              am pursuing a PhD in Physics. I am drawn to
-              problems where complex behavior emerges from interplay between interactions and thermal
-              effects. My past work has focused
-              on stochastic transport, interacting particle systems, and disordered
-              geometries. Currently, I am interested in understanding the behavior of hot and dense quark matter using perturbative quantum
-              choromodynamics (QCD).
+              I am Swastik Majumder, originally from Kolkata, West Bengal, India, and currently a graduate student in the Department of Physics at
+              The Ohio State University, where I am pursuing a PhD in Physics. My academic interests lie in problems in which complex collective
+              behavior emerges from the interplay of interactions, geometry, and thermal effects. My previous work has focused on stochastic
+              transport, interacting particle systems, and disordered geometries. At present, I am interested in the properties of hot and dense
+              quark matter, with particular emphasis on perturbative quantum chromodynamics (QCD).
             </p>
             <p class="muted">
-              Beyond physics, I am an avid reader of fiction, non-fiction, philosophy,
-              history, and especially the history of politics. I also write poetry,
-              blog about books I have been reading, enjoy teaching physics, and
-              closely follow cricket.
+              Beyond my research, I maintain a broad intellectual interest in fiction, non-fiction, philosophy, history, and especially political
+              history. I also write poetry, keep notes on books I am reading, enjoy teaching physics, and follow cricket closely.
             </p>
             <p class="muted">
-              You can contact me at <strong>majumderswastik09@gmail.com</strong>.
+              You may contact me at <strong>majumderswastik09@gmail.com</strong>.
             </p>
-            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 20px;">
-              <a class="button primary" href="#research" onclick="showTab('research')">Research papers</a>
-              <a class="button" href="#teaching" onclick="showTab('teaching')">Teaching</a>
-              <a class="button" href="#qft" onclick="showTab('qft')">QFT page</a>
-            </div>
           </div>
 
           <div class="card">
             <div class="eyebrow">Current focus</div>
-            <div class="mini-grid">
-              <div class="mini-card">
-                <h4>Research interests</h4>
-                <p>Hot and dense quark matter, perturbative QCD, stochastic transport, interacting particle systems, and disordered geometries.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Academic direction</h4>
-                <p>Understanding how interactions, geometry, and thermal effects combine to produce nontrivial collective behavior in many-body systems.</p>
-              </div>
-            </div>
+            <h3>Research direction</h3>
+            <ul class="plain-list">
+              <li><strong>Research interests:</strong> Hot and dense quark matter, perturbative QCD, stochastic transport, interacting particle systems, and disordered geometries.</li>
+              <li><strong>Academic direction:</strong> Understanding how interactions, geometry, and thermal effects combine to produce nontrivial collective behavior in many-body systems.</li>
+            </ul>
           </div>
         </div>
 
