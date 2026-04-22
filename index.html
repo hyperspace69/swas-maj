@@ -13,6 +13,7 @@
       --muted: #666;
       --border: #d9d9d9;
       --accent: #111;
+      --soft: #f1f5f9;
     }
 
     * {
@@ -139,6 +140,11 @@
       font-size: 22px;
     }
 
+    h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
     p {
       margin: 0 0 16px;
     }
@@ -214,6 +220,29 @@
       border-bottom: 1px solid #999;
     }
 
+    .chapter-block {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 24px;
+      background: #fff;
+    }
+
+    .problem-link {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      background: var(--soft);
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+
+    .problem-link:hover {
+      transform: translateY(-1px);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       margin-top: 30px;
@@ -261,7 +290,7 @@
             <div class="eyebrow">About</div>
             <p class="muted">
               I am Swastik Majumder, originally from Kolkata, West Bengal, India. I am currently a graduate student at
-              The Ohio State University, where I am pursuing a PhD in Physics at Center for Cosmology and AstroParticle Physics (CCAPP). 
+              The Ohio State University, where I am pursuing a PhD in Physics at Center for Cosmology and AstroParticle Physics (CCAPP).
             </p>
 
             <p class="muted">
@@ -293,7 +322,7 @@
             <div class="quick-links">
               <a href="https://scholar.google.com/citations?hl=en&user=-5FQmRkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
               <a href="https://inspirehep.net/authors/2817640?ui-citation-summary=true" target="_blank" rel="noopener noreferrer">Inspire</a>
-              <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+              <a href="https://www.linkedin.com/in/swastik-majumder-319323260/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </aside>
@@ -323,6 +352,7 @@
         </div>
       </section>
     </div>
+
     <div id="research" class="tabs">
       <section>
         <div class="section-box">
@@ -332,13 +362,13 @@
             <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a random comb</h3>
             <p class="muted">Swastik Majumder, Mustansir Barma</p>
             <p class="muted">Physical Review E (2026)</p>
-            <p> We studied stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
+            <p>We studied stochastic transport of interacting particles on a disordered random-comb network, emphasizing how bias and interactions shape steady-state behavior.</p>
             <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/gv3z-nqz6">View paper</a></p>
           </article>
 
           <article class="paper">
             <h3>Stochastic systems with Bose-Hubbard interactions: Effects of bias on particles on a one-dimensional lattice</h3>
-            <p class="muted">Swastik Majumder, Mustansir Barma</p> 
+            <p class="muted">Swastik Majumder, Mustansir Barma</p>
             <p class="muted">Physical Review E (2026)</p>
             <p>We explored the interplay between stochastic drive, interactions, and boundary conditions in interacting particle systems on a one-dimensional lattice.</p>
             <p><a class="inline-link" target="_blank" rel="noopener noreferrer" href="https://journals.aps.org/pre/accepted/10.1103/g8xn-2gvq">View paper</a></p>
@@ -377,10 +407,22 @@
         <div class="section-box">
           <div class="eyebrow">QFT page</div>
           <h2>Schwartz QFT solutions</h2>
-          <p class="muted">This page is reserved for worked solutions and notes based on Schwartz's Quantum Field Theory.</p>
-          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
-            <div class="eyebrow">Coming soon</div>
-            <p class="muted">I will gradually upload problem solutions, derivations, and short conceptual notes here.</p>
+          <p class="muted">
+            This page contains links to uploaded problem solutions and notes based on Schwartz's Quantum Field Theory.
+          </p>
+
+          <div class="chapter-block">
+            <div class="eyebrow">Chapter 1</div>
+            <h3>Chapter 1</h3>
+            <p>No problems.</p>
+          </div>
+
+          <div class="chapter-block">
+            <div class="eyebrow">Chapter 2</div>
+            <h3>Chapter 2</h3>
+            <p>
+              <a class="problem-link" href="2.1.pdf" target="_blank" rel="noopener noreferrer">Problem 2.1</a>
+            </p>
           </div>
         </div>
       </section>
