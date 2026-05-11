@@ -276,6 +276,7 @@
         <a href="#home" onclick="showTab('home')">Home</a>
         <a href="#research" onclick="showTab('research')">Publications</a>
         <a href="#teaching" onclick="showTab('teaching')">Teaching</a>
+        <a href="#others" onclick="showTab('others')">Others</a>
       </nav>
     </div>
   </header>
@@ -399,6 +400,16 @@
         </div>
       </section>
     </div>
+
+    <div id="others" class="tabs">
+      <section>
+        <div class="section-box">
+          <div class="eyebrow">Others</div>
+          <h2>Others</h2>
+          <p class="muted">This section will host additional notes, links, and miscellaneous writing.</p>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -431,7 +442,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['home', 'research', 'teaching'];
+      const validTabs = ['home', 'research', 'teaching', 'others'];
       const initialTab = validTabs.includes(hash) ? hash : 'home';
       showTab(initialTab);
     });
