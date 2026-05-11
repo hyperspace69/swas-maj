@@ -276,8 +276,6 @@
         <a href="#home" onclick="showTab('home')">Home</a>
         <a href="#research" onclick="showTab('research')">Publications</a>
         <a href="#teaching" onclick="showTab('teaching')">Teaching</a>
-        <a href="#books" onclick="showTab('books')">Books</a>
-        <a href="#poetry" onclick="showTab('poetry')">Poetry</a>
       </nav>
     </div>
   </header>
@@ -401,34 +399,6 @@
         </div>
       </section>
     </div>
-
-    <div id="books" class="tabs">
-      <section>
-        <div class="section-box">
-          <div class="eyebrow">Books & reading blog</div>
-          <h2>Notes on books, ideas, and history</h2>
-          <p class="muted">This section will host blog-style reflections on books I have been reading, especially in non-fiction, philosophy, history, and the history of politics.</p>
-          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
-            <div class="eyebrow">Coming soon</div>
-            <p class="muted">Essays, reading notes, and book reflections will appear here.</p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div id="poetry" class="tabs">
-      <section>
-        <div class="section-box">
-          <div class="eyebrow">Poetry</div>
-          <h2>Poems and fragments</h2>
-          <p class="muted">A space for poems, short reflections, and literary experiments.</p>
-          <div style="margin-top: 22px; border-top: 1px dashed var(--border); padding-top: 22px;">
-            <div class="eyebrow">Coming soon</div>
-            <p class="muted">Original writing and poetry will be posted here.</p>
-          </div>
-        </div>
-      </section>
-    </div>
   </main>
 
   <footer>
@@ -461,7 +431,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['home', 'research', 'teaching', 'books', 'poetry'];
+      const validTabs = ['home', 'research', 'teaching'];
       const initialTab = validTabs.includes(hash) ? hash : 'home';
       showTab(initialTab);
     });
